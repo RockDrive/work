@@ -11,6 +11,16 @@ class DataBase
         self::$mysqli = new mysqli($host, $user, $pass, $db);
     }
 
+    // прямой запрос
+    static public function Select($query) {
+        if ($stmt = self::$mysqli->prepare($query)) {
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $stmt->close();
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+    }
+
     // вывести
     static public function Show($table, $where = false)
     {

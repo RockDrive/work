@@ -9,6 +9,10 @@
         <li>
             <a href="/cabinet.php?logout=y">Выйти</a>
         </li>
+    <? } else { ?>
+        <li>
+            <a href="/cabinet.php?method=reg">Регистрация</a>
+        </li>
     <? } ?>
 </ul>
 <hr>
