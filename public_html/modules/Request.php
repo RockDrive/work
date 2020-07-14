@@ -5,6 +5,7 @@ class Request
 {
     static public $get;
     static public $post;
+    static public $all;
 
     public function __construct()
     {
@@ -13,8 +14,6 @@ class Request
         self::$post = $_POST;
 
         // объединение get и post (get приоритет)
-        $all = array_merge(self::$post, self::$get);
-
-        return $all;
+        self::$all = array_merge(self::$post, self::$get);
     }
 }
